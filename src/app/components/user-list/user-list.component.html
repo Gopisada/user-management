@@ -1,0 +1,16 @@
+<table class="users-table" aria-label="User list">
+  <thead>
+    <tr><th>Username</th><th>Email</th><th>Job Role</th><th>Actions</th></tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users$ | async">
+      <td>{{ user.username }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.jobRole }}</td>
+      <td>
+        <button (click)="edit.emit(user)">Edit</button>
+        <button (click)="delete.emit(user.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

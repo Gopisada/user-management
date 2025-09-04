@@ -1,0 +1,19 @@
+<div class="dash">
+  <header class="dash-header">
+    <h1>User Management</h1>
+    <div class="actions">
+      <button (click)="addNew()">Add user</button>
+      <button (click)="logout()">Logout</button>
+    </div>
+  </header>
+
+  <main>
+    <section *ngIf="!showForm">
+      <app-user-list [users$]="users$" (edit)="edit($event)" (delete)="delete($event)"></app-user-list>
+    </section>
+
+    <section *ngIf="showForm">
+      <app-user-form [user]="selectedUser" (close)="onFormClose()"></app-user-form>
+    </section>
+  </main>
+</div>

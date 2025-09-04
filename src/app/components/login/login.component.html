@@ -1,0 +1,15 @@
+<div class="login-page">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="login-form" aria-labelledby="login-heading">
+    <h2 id="login-heading">Sign in</h2>
+
+    <label for="username">Username</label>
+    <input id="username" formControlName="username" />
+    <div *ngIf="submitted && f['username'].invalid" class="error">Username is required</div>
+
+    <label for="password">Password</label>
+    <input id="password" type="password" formControlName="password" />
+    <div *ngIf="submitted && f['password'].invalid" class="error">Password is required</div>
+
+    <button type="submit">Login</button>
+  </form>
+</div>

@@ -1,0 +1,25 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="user-form" aria-labelledby="user-form-heading">
+  <h3 id="user-form-heading">{{ user ? 'Edit user' : 'Add user' }}</h3>
+
+  <label for="username">Username</label>
+  <input id="username" formControlName="username" />
+  <div *ngIf="form.controls['username'].invalid && form.controls['username'].touched" class="error">
+    Username required (min 3 chars).
+  </div>
+
+  <label for="email">Email</label>
+  <input id="email" formControlName="email" />
+  <div *ngIf="form.controls['email'].invalid && form.controls['email'].touched" class="error">
+    Valid email required.
+  </div>
+
+  <label for="jobRole">Job Role</label>
+  <select id="jobRole" formControlName="jobRole">
+    <option *ngFor="let r of jobRoles" [value]="r">{{ r }}</option>
+  </select>
+
+  <div class="form-actions">
+    <button type="submit">Save</button>
+    <button type="button" (click)="close.emit()">Cancel</button>
+  </div>
+</form>
