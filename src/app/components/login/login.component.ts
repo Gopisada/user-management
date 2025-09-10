@@ -30,6 +30,7 @@ export class LoginComponent implements OnInit{
     if (this.form.invalid) return;
 
     localStorage.setItem('mock_token', 'token'); // mock
+    localStorage.setItem('UserName', this.form.get('username')?.value)
     this.router.navigate(['/']);
   }
 }

@@ -1,6 +1,7 @@
 <div class="dash">
   <header class="dash-header">
     <h1>User Management</h1>
+    <h2 *ngIf="userName">Welcome {{userName}}</h2>
     <div class="actions">
       <button (click)="addNew()">Add user</button>
       <button (click)="logout()">Logout</button>

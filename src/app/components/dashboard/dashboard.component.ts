@@ -16,6 +16,7 @@ export class DashboardComponent implements OnInit {
   loading$: Observable<boolean>;
   selectedUser: User | null = null;
   showForm = false;
+  userName:String | null = null;
 
   constructor(private store: Store, private router: Router) {
     this.users$ = this.store.select(selectAllUsers);
@@ -24,6 +25,9 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.store.dispatch(UserActions.loadUsers());
+    if(localStorage.getItem('UserName') !== null) {
+      this.userName = localStorage.getItem('UserName')
+    }
   }
 
   addNew() {
@@ -48,6 +52,7 @@ export class DashboardComponent implements OnInit {
 
   logout() {
     localStorage.removeItem('mock_token');
+    localStorage.removeItem('UserName');
     this.router.navigate(['/login']);
   }
 }
