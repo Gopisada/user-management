@@ -17,6 +17,7 @@ import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { UserListComponent } from './components/user-list/user-list.component';
 import { UserFormComponent } from './components/user-form/user-form.component';
+import { SortorderPipe } from './sortorder.pipe';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { UserFormComponent } from './components/user-form/user-form.component';
     LoginComponent,
     DashboardComponent,
     UserListComponent,
-    UserFormComponent
+    UserFormComponent,
+    SortorderPipe
   ],
   imports: [
     BrowserModule,

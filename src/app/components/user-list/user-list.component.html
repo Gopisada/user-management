@@ -3,7 +3,7 @@
     <tr><th>Username</th><th>Email</th><th>Job Role</th><th>Actions</th></tr>
   </thead>
   <tbody>
-    <tr *ngFor="let user of users$ | async">
+    <tr *ngFor="let user of users$ | async | sortorder">
       <td>{{ user.username }}</td>
       <td>{{ user.email }}</td>
       <td>{{ user.jobRole }}</td>
